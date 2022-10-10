@@ -21,6 +21,10 @@ Vagrant.configure("2") do |config|
       VERSION=v0.3.10
       sudo curl -L "https://github.com/aelsabbahy/goss/releases/download/${VERSION}/goss-linux-amd64" -o /usr/local/bin/goss
       sudo chmod +rx /usr/local/bin/goss
+
+      VERSION=v0.3.10
+      sudo curl -L "https://github.com/aelsabbahy/goss/releases/download/${VERSION}/dgoss" -o /usr/local/bin/dgoss
+      sudo chmod +rx /usr/local/bin/dgoss
     SHELL
   end
   # Disable automatic box update checking. If you disable this, then
