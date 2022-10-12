@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                git credentialsId: 'github_token', url: 'https://github.com/ahopgood/domain-placeholders.git', branch: '${BRANCH_NAME}'
+                git credentialsId: 'github_token', url: 'https://github.com/ahopgood/docker-images.git', branch: '${BRANCH_NAME}'
                 sh 'docker --version'
                 sh 'git --version'
                 sh '''
