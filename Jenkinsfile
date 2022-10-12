@@ -20,8 +20,6 @@ pipeline {
                 sh '''
                     chmod +x getVersionTag.sh
                     VERSION=$(./getVersionTag.sh)
-#                    IMAGE_NAME="jenkins-agent-docker-cli"
-
                     docker build . -t ${IMAGE_NAME}:${VERSION}
 
                     echo "Docker Image version: ${VERSION}"
@@ -36,7 +34,6 @@ pipeline {
                     grype version
                     chmod +x getVersionTag.sh
                     VERSION=$(./getVersionTag.sh)
-                    IMAGE_NAME="domain-placeholders"
                     grype ${IMAGE_NAME}:${VERSION} -c .grype.yaml
                 '''
             }
@@ -50,7 +47,6 @@ pipeline {
                     sh '''
                         chmod +x getVersionTag.sh
                         VERSION=$(./getVersionTag.sh)
-#                        IMAGE_NAME="domain-placeholders"
                         NAMESPACE="reclusive/"
 
                         echo "Docker Image version: ${VERSION}"
