@@ -29,7 +29,7 @@ pipeline {
         stage('Docker Image Vulnerability Scan') {
             agent { label 'Docker && Grype' }
             steps {
-                git credentialsId: 'github_token', url: 'https://github.com/ahopgood/domain-placeholders.git', branch: '${BRANCH_NAME}'
+                git credentialsId: 'github_token', url: 'https://github.com/ahopgood/docker-images.git', branch: '${BRANCH_NAME}'
                 sh'''
                     grype version
                     chmod +x getVersionTag.sh
