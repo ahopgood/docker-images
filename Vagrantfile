@@ -14,7 +14,10 @@ Vagrant.configure("2") do |config|
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = "reclusive/xenial64-docker"
   config.vm.box_version = "0.0.2021-02-01-0200"
-
+  config.vm.provider "virtualbox" do |v|
+    v.memory = 4096
+    v.cpus = 2
+  end
   config.vm.define "Ubuntu18" do |server|
     server.ssh.private_key_path = ["C:/Users/Alexander/.vagrant.d/insecure_private_key","C:/Users/Alexander/.vagrant.d/20170926_vagrant_private_key"]
     config.vm.provision "shell", inline: <<-SHELL
@@ -25,6 +28,9 @@ Vagrant.configure("2") do |config|
       VERSION=v0.3.10
       sudo curl -L "https://github.com/aelsabbahy/goss/releases/download/${VERSION}/dgoss" -o /usr/local/bin/dgoss
       sudo chmod +rx /usr/local/bin/dgoss
+
+      wget https://github.com/anchore/grype/releases/download/v0.35.0/grype_0.35.0_linux_amd64.deb
+      sudo dpkg -i grype_0.35.0_linux_amd64.deb
     SHELL
   end
   # Disable automatic box update checking. If you disable this, then
