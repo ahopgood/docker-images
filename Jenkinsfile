@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'Docker' }
+    agent { label 'Docker && Grype' }
     environment {
         IMAGE_NAME="jenkins-agent-docker-cli"
     }
@@ -27,7 +27,6 @@ pipeline {
             }
         } //End build stage
         stage('Docker Image Vulnerability Scan') {
-            agent { label 'Docker && Grype' }
             steps {
                 git credentialsId: 'github_token', url: 'https://github.com/ahopgood/docker-images.git', branch: '${BRANCH_NAME}'
                 sh'''
