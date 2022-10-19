@@ -33,6 +33,11 @@ RUN apt install -y unzip && \
   rm apache-maven-${MAVEN_VERSION}-bin.zip && \
   apt remove -y unzip
 
+ARG GRYPE_VERSION="0.35.0"
+RUN curl -L -o grype_${GRYPE_VERSION}_linux_amd64.deb https://github.com/anchore/grype/releases/download/v${GRYPE_VERSION}/grype_${GRYPE_VERSION}_linux_amd64.deb && \
+    dpkg -i grype_${GRYPE_VERSION}_linux_amd64.deb && \
+    rm grype_${GRYPE_VERSION}_linux_amd64.deb
+
 ENV M2_HOME="/opt/apache-maven-${MAVEN_VERSION}"
 ENV PATH="$M2_HOME/bin:$PATH"
 

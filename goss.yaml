@@ -32,6 +32,10 @@ package:
     installed: true
     versions:
     - 7.4.1-1
+  grype:
+    installed: true
+    versions:
+    - 0.35.0
   jq:
     installed: true
     versions:
