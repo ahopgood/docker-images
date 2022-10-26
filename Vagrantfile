@@ -29,8 +29,15 @@ Vagrant.configure("2") do |config|
       sudo curl -L "https://github.com/aelsabbahy/goss/releases/download/${VERSION}/dgoss" -o /usr/local/bin/dgoss
       sudo chmod +rx /usr/local/bin/dgoss
 
-      wget https://github.com/anchore/grype/releases/download/v0.35.0/grype_0.35.0_linux_amd64.deb
-      sudo dpkg -i grype_0.35.0_linux_amd64.deb
+      GRYPE_VERSION=0.51.0
+      wget https://github.com/anchore/grype/releases/download/v${GRYPE_VERSION}/grype_${GRYPE_VERSION}_linux_amd64.deb
+      sudo dpkg -i grype_${GRYPE_VERSION}_linux_amd64.deb
+
+      SYFT_VERSION="0.57.0"
+      wget "https://github.com/anchore/syft/releases/download/v${SYFT_VERSION}/syft_${SYFT_VERSION}_linux_amd64.deb"
+      sudo dpkg -i syft_${SYFT_VERSION}_linux_amd64.deb
+
+      sudo apt-get install -y jq
     SHELL
   end
   # Disable automatic box update checking. If you disable this, then

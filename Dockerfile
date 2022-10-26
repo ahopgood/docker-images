@@ -14,14 +14,13 @@ RUN curl -fsSLo /usr/share/keyrings/hashicorp-archive-keyring.asc https://apt.re
 RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashicorp-archive-keyring.asc] https://apt.releases.hashicorp.com $(lsb_release -cs) main" > /etc/apt/sources.list.d/hashicorp.list
 
 
-ARG NOMAD_VERSION=1.3.5-1
+ARG NOMAD_VERSION=1.4.1-1
 RUN apt-get update && apt-get install -y docker-ce-cli dos2unix jq nomad=${NOMAD_VERSION} pandoc texlive-fonts-recommended texlive-latex-extra lmodern && \
   apt-get autoremove && \
   apt clean && \
   rm -rf /var/lib/apt/lists/*
 
-
-ARG LEVANT_VERSION="0.3.0"
+ARG LEVANT_VERSION="0.3.2"
 ARG MAVEN_VERSION="3.8.6"
 RUN apt install -y unzip && \
   curl -L -o levant-${LEVANT_VERSION}.zip https://releases.hashicorp.com/levant/${LEVANT_VERSION}/levant_${LEVANT_VERSION}_linux_amd64.zip && \
