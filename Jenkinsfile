@@ -2,6 +2,7 @@ pipeline {
     agent { label 'Docker && Grype' }
     environment {
         IMAGE_NAME="jenkins-agent-docker-cli"
+        VERSION=sh(script: "chmod +x getVersionTag.sh && ./getVersionTag.sh", returnStdout:true)
     }
     stages {
         stage ('Test') {
@@ -17,8 +18,6 @@ pipeline {
                 sh 'docker --version'
                 sh 'git --version'
                 sh '''
-                    chmod +x getVersionTag.sh
-                    VERSION=$(./getVersionTag.sh)
                     docker build . -t ${IMAGE_NAME}:${VERSION}
 
                     echo "Docker Image version: ${VERSION}"
@@ -29,8 +28,6 @@ pipeline {
             steps {
                 sh'''
                     grype version
-                    chmod +x getVersionTag.sh
-                    VERSION=$(./getVersionTag.sh)
                     grype ${IMAGE_NAME}:${VERSION} -c .grype.yaml
                 '''
             }
@@ -42,8 +39,6 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     sh '''
-                        chmod +x getVersionTag.sh
-                        VERSION=$(./getVersionTag.sh)
                         NAMESPACE="reclusive/"
 
                         echo "Docker Image version: ${VERSION}"
