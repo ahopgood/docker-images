@@ -32,6 +32,10 @@ package:
     installed: true
     versions:
     - 7.4.1-1
+  graphviz:
+    installed: true
+    versions:
+    - 2.42.2-5
   grype:
     installed: true
     versions:
@@ -83,6 +87,30 @@ command:
     stdout:
     - goss version v0.3.10
     stderr: []
+    timeout: 10000
+  dot -version:
+    exit-status: 0
+    stdout: []
+    stderr:
+    - dot - graphviz version 2.43.0 (0)
+    - libdir = "/usr/lib/x86_64-linux-gnu/graphviz"
+    - 'Activated plugin library: libgvplugin_dot_layout.so.6'
+    - 'Using layout: dot:dot_layout'
+    - 'Activated plugin library: libgvplugin_core.so.6'
+    - 'Using render: dot:core'
+    - 'Using device: dot:dot:core'
+    - 'The plugin configuration file:'
+    - \/usr/lib/x86_64-linux-gnu/graphviz/config6a
+    - was successfully loaded.
+    - "render\t:  cairo dot dot_json fig gd json json0 map mp pic pov ps svg tk visio
+      vml vrml xdot xdot_json"
+    - "layout\t:  circo dot fdp neato nop nop1 nop2 osage patchwork sfdp twopi"
+    - "textlayout\t:  textlayout"
+    - "device\t:  canon cmap cmapx cmapx_np dot dot_json eps fig gd gd2 gif gv imap
+      imap_np ismap jpe jpeg jpg json json0 mp pdf pic plain plain-ext png pov ps
+      ps2 svg svgz tk vdx vml vmlz vrml wbmp webp x11 xdot xdot1.2 xdot1.4 xdot_json
+      xlib"
+    - "loadimage\t:  (lib) eps gd gd2 gif jpe jpeg jpg png ps svg webp xbm"
     timeout: 10000
   echo ${JAVA_HOME}:
     exit-status: 0

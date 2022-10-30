@@ -15,7 +15,7 @@ RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/h
 
 
 ARG NOMAD_VERSION=1.4.1-1
-RUN apt-get update && apt-get install -y docker-ce-cli dos2unix jq nomad=${NOMAD_VERSION} pandoc texlive-fonts-recommended texlive-latex-extra lmodern && \
+RUN apt-get update && apt-get install -y docker-ce-cli dos2unix jq nomad=${NOMAD_VERSION} pandoc texlive-fonts-recommended texlive-latex-extra lmodern graphviz && \
   apt-get autoremove && \
   apt clean && \
   rm -rf /var/lib/apt/lists/*
