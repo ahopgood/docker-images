@@ -12,14 +12,14 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
-  config.vm.box = "reclusive/xenial64-docker"
-  config.vm.box_version = "0.0.2021-02-01-0200"
+  config.vm.box = "reclusive/bionic64-docker"
+  # config.vm.box_version = "0.0.2021-02-01-0200"
   config.vm.provider "virtualbox" do |v|
     v.memory = 4096
     v.cpus = 2
   end
   config.vm.define "Ubuntu18" do |server|
-    server.ssh.private_key_path = ["C:/Users/Alexander/.vagrant.d/insecure_private_key","C:/Users/Alexander/.vagrant.d/20170926_vagrant_private_key"]
+    server.ssh.private_key_path = ["~/.vagrant.d/insecure_private_key","~/.vagrant.d/20170926_vagrant_private_key"]
     config.vm.provision "shell", inline: <<-SHELL
       VERSION=v0.3.10
       sudo curl -L "https://github.com/aelsabbahy/goss/releases/download/${VERSION}/goss-linux-amd64" -o /usr/local/bin/goss

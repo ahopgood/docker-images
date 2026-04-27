@@ -26,7 +26,7 @@ RUN apt install -y unzip && \
   curl -L -o levant-${LEVANT_VERSION}.zip https://releases.hashicorp.com/levant/${LEVANT_VERSION}/levant_${LEVANT_VERSION}_linux_amd64.zip && \
   unzip levant-${LEVANT_VERSION}.zip -d /usr/bin && \
   rm levant-${LEVANT_VERSION}.zip && \
-  curl -L -o apache-maven-${MAVEN_VERSION}-bin.zip https://dlcdn.apache.org/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.zip && \
+  curl -L -o apache-maven-${MAVEN_VERSION}-bin.zip https://archive.apache.org/dist/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.zip && \
   unzip apache-maven-${MAVEN_VERSION}-bin.zip -d /opt && \
   rm apache-maven-${MAVEN_VERSION}-bin.zip && \
   apt remove -y unzip
