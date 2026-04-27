@@ -29,7 +29,7 @@ Vagrant.configure("2") do |config|
       sudo curl -L "https://github.com/aelsabbahy/goss/releases/download/${VERSION}/dgoss" -o /usr/local/bin/dgoss
       sudo chmod +rx /usr/local/bin/dgoss
 
-      GRYPE_VERSION=0.51.0
+      GRYPE_VERSION=0.111.0
       wget https://github.com/anchore/grype/releases/download/v${GRYPE_VERSION}/grype_${GRYPE_VERSION}_linux_amd64.deb
       sudo dpkg -i grype_${GRYPE_VERSION}_linux_amd64.deb
 
