@@ -4,11 +4,12 @@ A project for building docker images used by services and infrastructure
 
 ## Building and pushing the image
 ```
-sudo docker login https://registry.alexanderhopgood.com
+export REGISTRY=registry.alexanderhopgood.com
+sudo docker login https://${REGISTRY}
 export TAG=$(date "+%Y%m%d-%H%M%S")
-sudo docker build -f Dockerfile . -t reclusive/jenkins-agent-docker-cli:${TAG} -t reclusive/jenkins-agent-docker-cli:latest
-sudo docker push reclusive/jenkins-agent-docker-cli:${TAG}
-sudo docker push reclusive/jenkins-agent-docker-cli:latest
+sudo docker build -f Dockerfile . -t ${REGISTRY}/reclusive/jenkins-agent-docker-cli:${TAG} -t ${REGISTRY}/reclusive/jenkins-agent-docker-cli:latest
+sudo docker push ${REGISTRY}/reclusive/jenkins-agent-docker-cli:${TAG}
+sudo docker push ${REGISTRY}/reclusive/jenkins-agent-docker-cli:latest
 docker logout 
 ```
 ## Nomad-Jenkins-Agent
