@@ -28,7 +28,7 @@ pipeline {
             steps {
                 sh'''
                     grype version
-                    sudo grype ${IMAGE_NAME}:${VERSION} -c .grype.yaml
+                    grype ${IMAGE_NAME}:${VERSION} -c .grype.yaml
                 '''
             }
         } //End Vulnerability Scan Stage
