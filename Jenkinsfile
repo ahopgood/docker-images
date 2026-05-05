@@ -24,6 +24,20 @@ pipeline {
                 '''
             }
         } //End build stage
+        stage('Goss - verify configuration of docker image') {
+            steps {
+                sh 'docker --version'
+                sh 'git --version'
+                sh '''
+                sudo dgoss edit -e DOCKER_HOST=tcp://anyhost:anyport \
+                    -e JENKINS_SECRET=01fa19003732d879d8bcf3f85a4c33e6b0fb243ad3b8a4aaf80e6bda6bae0942 \
+                    -e JENKINS_TUNNEL=anyhost:anyport \
+                    -e JENKINS_AGENT_NAME=nomad \
+                    -e JENKINS_URL=http://192.168.56.10:8080 \
+                    -d ${IMAGE_NAME}:${VERSION}
+                '''
+            }
+        } //End test stage
         stage('Docker Image Vulnerability Scan') {
             steps {
                 sh'''

@@ -13,6 +13,7 @@ Vagrant.configure("2") do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = "reclusive/bionic64-docker"
+  config.vm.boot_timeout = 600
   # config.vm.box_version = "0.0.2021-02-01-0200"
   config.vm.provider "virtualbox" do |v|
     v.memory = 4096
