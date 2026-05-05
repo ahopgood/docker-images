@@ -29,7 +29,7 @@ pipeline {
                 sh 'docker --version'
                 sh 'git --version'
                 sh '''
-                dgoss edit -e DOCKER_HOST=tcp://anyhost:anyport \
+                dgoss run -e DOCKER_HOST=tcp://anyhost:anyport \
                     -e JENKINS_SECRET=01fa19003732d879d8bcf3f85a4c33e6b0fb243ad3b8a4aaf80e6bda6bae0942 \
                     -e JENKINS_TUNNEL=anyhost:anyport \
                     -e JENKINS_AGENT_NAME=nomad \
