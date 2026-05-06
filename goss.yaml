@@ -27,7 +27,7 @@ package:
   docker-ce-cli:
     installed: true
     versions:
-    - 5:29.4.2-2~debian.13~trixie
+    - 5:29.4.3-1~debian.13~trixie
   dos2unix:
     installed: true
     versions:
