@@ -44,8 +44,7 @@ pipeline {
                     -e JENKINS_AGENT_NAME=nomad \
                     -e JENKINS_URL=http://192.168.56.10:8080 \
                     -e GOSS_FILES_STRATEGY=cp \
-                    -v $(PWD)/goss.yaml:/goss/goss.yaml:ro \
-                    -d ${IMAGE_NAME}:${VERSION}
+                     ${IMAGE_NAME}:${VERSION}
                 '''
             }
         } //End test stage
