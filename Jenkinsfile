@@ -29,6 +29,7 @@ pipeline {
                 sh 'docker --version'
                 sh 'git --version'
                 sh '''
+                    docker build . -t ${IMAGE_NAME}:${VERSION}
                 VERSION=v0.3.10
                 curl -L "https://github.com/aelsabbahy/goss/releases/download/${VERSION}/dgoss" -o /usr/local/bin/dgoss
                 chmod +rx /usr/local/bin/dgoss
