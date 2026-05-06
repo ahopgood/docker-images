@@ -42,6 +42,7 @@ pipeline {
                     -e JENKINS_TUNNEL=anyhost:anyport \
                     -e JENKINS_AGENT_NAME=nomad \
                     -e JENKINS_URL=http://192.168.56.10:8080 \
+                    -e GOSS_FILES_STRATEGY=cp \
                     -d ${IMAGE_NAME}:${VERSION}
                 '''
             }
