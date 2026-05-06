@@ -38,6 +38,7 @@ pipeline {
                 export GOSS_PATH=/usr/local/bin/goss
                 # https://github.com/goss-org/goss/issues/389
                 export GOSS_FILES_STRATEGY=cp
+                dos2unix goss.yaml
                 dgoss run -e DOCKER_HOST=tcp://anyhost:anyport \
                     -e JENKINS_SECRET=01fa19003732d879d8bcf3f85a4c33e6b0fb243ad3b8a4aaf80e6bda6bae0942 \
                     -e JENKINS_TUNNEL=anyhost:anyport \
