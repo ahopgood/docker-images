@@ -36,7 +36,7 @@ pipeline {
                 curl -L "https://github.com/aelsabbahy/goss/releases/download/${GOSS_VERSION}/goss-linux-amd64" -o /usr/local/bin/goss
                 chmod +rx /usr/local/bin/goss
                 export GOSS_PATH=/usr/local/bin/goss
-                
+                export GOSS_FILES_STRATEGY=cp
                 dgoss run -e DOCKER_HOST=tcp://anyhost:anyport \
                     -e JENKINS_SECRET=01fa19003732d879d8bcf3f85a4c33e6b0fb243ad3b8a4aaf80e6bda6bae0942 \
                     -e JENKINS_TUNNEL=anyhost:anyport \
